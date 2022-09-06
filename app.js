@@ -25,14 +25,18 @@ async function getPlaylist(req, resp) {
         }
         let data = ytdata.contents.twoColumnBrowseResultsRenderer.tabs[0].tabRenderer.content.sectionListRenderer.contents[0].itemSectionRenderer.contents[0].playlistVideoListRenderer.contents;
         let playlist = [];
+        let index = 1
         for (const item of data) {
             playlist.push({
                 title: item.playlistVideoRenderer.title.runs[0].text,
-                thumbnail: item.playlistVideoRenderer.thumbnail.thumbnails[0].url,
-                id: item.playlistVideoRenderer.videoId,
+                artwork: item.playlistVideoRenderer.thumbnail.thumbnails[0].url,
+                videoId: item.playlistVideoRenderer.videoId,
                 duration: item.playlistVideoRenderer.lengthText.simpleText,
                 artist: item.playlistVideoRenderer.shortBylineText.runs[0].text,
+                id,
+                url: "https://oriteserver-prod-oti-wzgw83.mo1.mogenius.io/getStream?id=" + item.playlistVideoRenderer.videoId
             });
+            id++
         }
         resp.json({ name: ytdata.metadata.playlistMetadataRenderer.title, playlist: playlist });
     } else {
