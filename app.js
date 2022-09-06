@@ -33,7 +33,7 @@ async function getPlaylist(req, resp) {
                 duration: item.playlistVideoRenderer.lengthText.simpleText,
                 artist: item.playlistVideoRenderer.shortBylineText.runs[0].text,
                 id: index,
-                url: "https://oriteserver-prod-oti-wzgw83.mo1.mogenius.io/getStream?id=" + item.playlistVideoRenderer.videoId
+                url: "https://orite.onrender.com/getUrl?id=" + item.playlistVideoRenderer.videoId,
             });
             index++
         }
@@ -48,5 +48,6 @@ async function getUrl(req, res) {
     let id = decodeURI(req.query.id);
     let info = await ytdl.getInfo(id);
     let format = ytdl.chooseFormat(info.formats, { quality: "highestaudio" });
-    res.json(format.url);
+    console.log(format)
+    res.redirect(format.url);
 }
