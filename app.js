@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const ytdl = require("ytdl-core");
 const rp = require('request-promise')
+const rq = require('request')
 
 app.listen(process.env.PORT || 8080, () => {
     console.log("Listening to requests on 8080");
