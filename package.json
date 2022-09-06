@@ -2,9 +2,9 @@
     "name": "oriteserver",
     "version": "1.0.0",
     "description": "",
-    "main": "index.js",
+    "main": "app.js",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "node app.js"
     },
     "keywords": [],
     "author": "",
@@ -14,5 +14,8 @@
         "request-promise": "^4.2.6",
         "send-seekable": "^1.0.4",
         "ytdl-core": "^4.11.2"
+    },
+    "engines": {
+        "node": ">=14"
     }
 }
