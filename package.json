@@ -1,18 +1,18 @@
 {
-  "name": "oriteserver",
-  "version": "1.0.0",
-  "description": "",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
-  "keywords": [],
-  "author": "",
-  "license": "ISC",
-  "dependencies": {
-    "express": "^4.18.1",
-    "request-promise": "^4.2.6",
-    "send-seekable": "^1.0.4",
-    "ytdl-core": "^4.11.2"
-  }
+    "name": "oriteserver",
+    "version": "1.0.0",
+    "description": "",
+    "main": "index.js",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "keywords": [],
+    "author": "",
+    "license": "ISC",
+    "dependencies": {
+        "express": "^4.18.1",
+        "request-promise": "^4.2.6",
+        "send-seekable": "^1.0.4",
+        "ytdl-core": "^4.11.2"
+    }
 }

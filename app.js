@@ -33,10 +33,10 @@ async function getPlaylist(req, resp) {
                 videoId: item.playlistVideoRenderer.videoId,
                 duration: item.playlistVideoRenderer.lengthText.simpleText,
                 artist: item.playlistVideoRenderer.shortBylineText.runs[0].text,
-                id,
+                id: index,
                 url: "https://oriteserver-prod-oti-wzgw83.mo1.mogenius.io/getStream?id=" + item.playlistVideoRenderer.videoId
             });
-            id++
+            index++
         }
         resp.json({ name: ytdata.metadata.playlistMetadataRenderer.title, playlist: playlist });
     } else {
@@ -52,7 +52,7 @@ async function getStream(req, res) {
 
     let info = await ytdl.getInfo(id);
 
-    let format = ytdl.chooseFormat(info.formats, { quality: "highestaudio" });
+    let format = ytdl.chooseFormat(info.formats, { quality: "lowestaudio" });
     let type = "audio/mpeg";
     let size = format.contentLength;
 
