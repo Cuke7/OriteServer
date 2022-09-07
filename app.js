@@ -10,6 +10,8 @@ app.listen(process.env.PORT || 8080, () => {
 app.get('/getPlaylist', getPlaylist);
 app.get("/getUrl", getUrl)
 
+let serverURl = "https://oriteserver-prod-oti-wzgw83.mo1.mogenius.io"
+
 
 async function getPlaylist(req, resp) {
     if (decodeURI(req.query.url.length) > 0) {
@@ -33,7 +35,7 @@ async function getPlaylist(req, resp) {
                 duration: item.playlistVideoRenderer.lengthText.simpleText,
                 artist: item.playlistVideoRenderer.shortBylineText.runs[0].text,
                 id: index,
-                url: "https://orite.onrender.com/getUrl?id=" + item.playlistVideoRenderer.videoId,
+                url: serverURl + "/getUrl?id=" + item.playlistVideoRenderer.videoId,
             });
             index++
         }
